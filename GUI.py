@@ -1,15 +1,17 @@
+# imported all the modules and packages 
+
 import tkinter as tk
 from tkinter import ttk, filedialog
-import requests
+import requests# request module
 import threading
 
-def download_file(url, save_path):
+def download_file(url, save_path):# function to download the file 
     try:
         response = requests.get(url, stream=True)
         total_size = int(response.headers.get('content-length', 0))
         block_size = 1024
         progress_bar['maximum'] = total_size
-        with open(save_path, 'wb') as file:
+        with open(save_path, 'wb') as file:# to open the file
             for data in response.iter_content(block_size):
                 file.write(data)
                 progress_bar['value'] += len(data)
@@ -17,13 +19,13 @@ def download_file(url, save_path):
     except Exception as e:
         status_label.config(text=f"Error: {e}")
 
-def browse_save_path():
+def browse_save_path():# browse the path of the file
     save_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("All Files", "*.*")])
-    save_path_entry.delete(0, tk.END)
+    save_path_entry.delete(0, tk.END)# delete and the insert the file
     save_path_entry.insert(0, save_path)
 
 def start_download():
-    url = url_entry.get()
+    url = url_entry.get()# to get basically the http request
     save_path = save_path_entry.get()
     if url and save_path:
         threading.Thread(target=download_file, args=(url, save_path)).start()
