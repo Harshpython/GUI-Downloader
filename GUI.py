@@ -10,21 +10,21 @@ def download_file(url, save_path):# function to download the file
         response = requests.get(url, stream=True)
         total_size = int(response.headers.get('content-length', 0))
         block_size = 1024
-        progress_bar['maximum'] = total_size
+        progress_bar['maximum'] = total_size 
         with open(save_path, 'wb') as file:# to open the file
             for data in response.iter_content(block_size):
-                file.write(data)
+                file.write(data) #write data
                 progress_bar['value'] += len(data)
         status_label.config(text="Download complete!")
-    except Exception as e:
+    except Exception as e:# exception for no error
         status_label.config(text=f"Error: {e}")
 
 def browse_save_path():# browse the path of the file
     save_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("All Files", "*.*")])
     save_path_entry.delete(0, tk.END)# delete and the insert the file
-    save_path_entry.insert(0, save_path)
+    save_path_entry.insert(0, save_path)#save path 
 
-def start_download():
+def start_download():# start download 
     url = url_entry.get()# to get basically the http request
     save_path = save_path_entry.get()
     if url and save_path:
@@ -33,8 +33,8 @@ def start_download():
         status_label.config(text="Please enter URL and save path.")
 
 # Create the main window
-root = tk.Tk()
-root.title("Downloader")
+root = tk.Tk()#tinkter
+root.title("Downloader")#title
 
 # Create URL input field
 url_label = tk.Label(root, text="URL:")
