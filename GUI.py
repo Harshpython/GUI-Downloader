@@ -7,6 +7,7 @@ import threading
 
 def download_file(url, save_path):# function to download the file 
     try:
+        # initializing all the required requests
         response = requests.get(url, stream=True)
         total_size = int(response.headers.get('content-length', 0))
         block_size = 1024
@@ -23,7 +24,7 @@ def browse_save_path():# browse the path of the file
     save_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("All Files", "*.*")])
     save_path_entry.delete(0, tk.END)# delete and the insert the file
     save_path_entry.insert(0, save_path)#save path 
-
+# a function to start the download
 def start_download():# start download 
     url = url_entry.get()# to get basically the http request
     save_path = save_path_entry.get()
@@ -37,7 +38,7 @@ root = tk.Tk()#tinkter
 root.title("Downloader")#title
 
 # Create URL input field
-url_label = tk.Label(root, text="URL:")
+url_label = tk.Label(root, text="URL:")# initializing the lenght, column, size
 url_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 url_entry = tk.Entry(root, width=50)
 url_entry.grid(row=0, column=1, padx=5, pady=5, sticky="we")
