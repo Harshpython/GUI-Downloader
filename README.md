@@ -7,7 +7,7 @@ Built with Tkinter, it allows users to input the URL of the file they want to do
 
 
 
- Features
+ Features  
 
 - Simple and intuitive GUI for downloading files.
 - Supports URL input and file selection for download location.
