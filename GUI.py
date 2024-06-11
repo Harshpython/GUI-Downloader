@@ -3,7 +3,7 @@
  import tkinter as tk
 from tkinter import ttk, filedialog
 import requests# request module
-import threading 
+import threading # threading 
 
 def download_file(url, save_path):# function to download the file 
     try:
