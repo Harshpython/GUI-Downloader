@@ -1,9 +1,9 @@
 # imported all the modules and packages 
 
-import tkinter as tk
+ import tkinter as tk
 from tkinter import ttk, filedialog
 import requests# request module
-import threading
+import threading 
 
 def download_file(url, save_path):# function to download the file 
     try:
