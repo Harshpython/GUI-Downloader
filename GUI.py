@@ -14,7 +14,7 @@ def download_file(url, save_path):# function to download the file
         progress_bar['maximum'] = total_size 
         with open(save_path, 'wb') as file:# to open the file
             for data in response.iter_content(block_size):
-                file.write(data) #write data
+                file.write(data) #write data 
                 progress_bar['value'] += len(data)
         status_label.config(text="Download complete!")
     except Exception as e: #exception for no error
