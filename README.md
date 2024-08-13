@@ -5,7 +5,7 @@
 
 The GUI Downloader is a Python-based application that provides a graphical user interface for downloading files from the internet. 
 Built with Tkinter, it allows users to input the URL of the file they want to download, select the download location, and monitor the download progress.
-
+ 
    
  
  Features  
