@@ -1,4 +1,4 @@
-# imported all the modules and packages 
+ # imported all the modules and packages 
 
 import tkinter as tk
 from tkinter import ttk, filedialog
